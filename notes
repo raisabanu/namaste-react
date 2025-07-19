@@ -1,0 +1,58 @@
+
+
+npm install parcel   - Normal dependency
+npm install -D parcel  - installing parcel as a Dev dependency
+2 Types of dependencies
+Dev dependencies - required in development phase
+Normal dependencies - used in production also
+
+caret^ - when you use Caret , parcel will be automatically upgraded to a newer version if there is a new minor version coming up
+
+Tilda  - it will just install the major version - when this happens a lot of things change
+it is always recommended to use caret^ in the parcel version - in package.json file
+
+package.json - is a configuration for npm, keeps track of which version of parcel is installed in system
+package.lock.json 
+- It locks the version and keeps track of the exact version that package or dependency which is being installed
+- It keeps a hash to verify whether the local machine version which we have is being installed into production
+
+- React Elements - kind of equal to DOM elements 
+
+Node modules - contains all the code that we fetched from npm , when we installed the parcel 
+this is like a data base of the packages that is installed
+
+-Our project has a dependency which is parcel, parcel as a project has its own dependencies and then in turn these dependencies can have their own dependencies - this is called transitive dependencies 
+-In project we have a lot of package.json files - like for every package we have a package.json file which has its own dependencies
+
+-always recommended not to put this node modules huge file on git , so place this in a file gitignore
+-always recommended to put the package and package.lock json files into the git
+-When we have package and package.lock json files, we have all dependencies we can recreate the node modules just in cases when it was deleted or lost. 
+-
+-fetching from CDN is not preferred as it will make a network call to unpkg.com
+instead if we have the react in our node modules, this is the best practice.
+--Instead of using CDN links , install react as a normal dependency npm i react-dom
+
+npm install npm i  both are same
+
+- we use scripts to start, build the project or the code , in package.json file you will find these scripts
+- npm run start - shortcut for this is :  npm start(equal to npx parcel index.html)
+- npm run build
+- createElement - three arguements -  Tag (h1,h2 etc) , Object and then what comes in tag
+- React has to have a root , where it will do all dom manipulations
+- create root inside react for the react library
+
+- ECMA Script - ES6 - JS Engine understands this script
+- code is converted before it reaches the JS engine 
+- Tanspiling is done by PARCEL (bundler) , here comes Babel into picture , its a package which is inside PARCEL
+- Babel is a package which converts the code to a code that react will understand
+
+
+- REACT COMPONENTS
+- CLASS BASE COMPONENTS - old way of writting code - no one uses this now
+- FUNCTIONAL COMPONENT - new way of writting code 
+- REACT FUNCIONAL COMPONENT - is a JavaScript Function which returns some JSX ELement 
+- inside the curly braces - you can write any JS code like h2, h1, number (variables) , console.log etc
+<h2> {200 + 300 } </h2>   <h1> {number} </h1> <h1> console.log(number) </h1> you can call a function too    
+- you can put react element inside a component
+- component inside a component
+- JSX takes care of injection attacks like cross site scripting attacks , as it sanitizes the data 

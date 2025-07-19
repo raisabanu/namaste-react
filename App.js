@@ -1,34 +1,49 @@
-//createElement - three arguements -  Tag (h1,h2 etc) , Object and then what comes in tag
-//React has to have a root , where it will do all dom manipulations
-//create root inside react for the react library
+import React from "react";
+import { createRoot } from "react-dom/client"; 
 
-{/* <div id="parent">
-    <div id="child">
-       <h1>I am h1 tag</h1>
-       <h2>Iam h2 tag</h2>
-       </div>
-</div> */}
+// React Element using JSX
+//React.createElement => Objdct => when render form HTML element - using react
 
-const parent = React.createElement("div" , {id: "parent"} , [
-React.createElement("div" ,{id: "child"}, [
-        React.createElement("h1", {}, "I am an h1 Tag") ,
-        React.createElement("h1", {}, "I am an h2 Tag") 
-    ]),
-    React.createElement("div" ,{id: "child2"}, [
-        React.createElement("h1", {}, "I am an h1 Tag") ,
-        React.createElement("h1", {}, "I am an h2 Tag") 
-    ]),
-])
+const reactheading = React.createElement(
+    "h1",
+     { id: "heading" }, 
+     "Namaste React"
+);
+
+const element1 = <span tabIndex={5}> React Element </span>
+// React Component 
+
+// React Functional Component - normal JS function that returns a JSX element
+
+const HeadingComponent = () => (
+      <div id="container">
+        <h1 className="heading">Namaste React functional component is here!!</h1>
+    </div> 
+);
+
+const title = (
+  <h1 className="heading" tabIndex="5">
+     {element1}
+     {/* {HeadingComponent()} // calling it as a function  */}
+     Namaste React using JSX
+     <HeadingComponent />
+    </h1>
+    
+);
+
+const number = 10000;
+
+//component composition - composing two components into one another
+//placing a function component inside a function component
+//we can write the number (JS variable) inside the component - it will put the number in there {number}
 
 
-const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(parent);
+// JSX - merge html and js together , jsx is not HTML in Javascript , jsx is HTML LIKE syntax  - using JS
 
-// //we are creating a reach element which is heading, a react elemen s JS object
-// const heading = React.createElement(
-//     "h1", 
-//     { id: "heading"},   //attributes to the h1 tag
-//     "Hello World From React!");
+// JSX code => Babels Transpiles it to ReactElement, which is JS Object => render on to DOM as HTML element
+const jsxHeading = <h1 className="head"  tabIndex="1"> Namaste React using JSX </h1>
 
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(heading); 
+const root = createRoot(document.getElementById("root")); 
+
+
+root.render(<HeadingComponent />); // this is how babel understands that this is a functional component
